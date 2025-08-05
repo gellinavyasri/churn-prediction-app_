@@ -3,6 +3,13 @@ import os
 import zipfile
 import pandas as pd
 import joblib
+import sklearn.compose._column_transformer as ct
+
+class _RemainderColsList:
+    pass
+
+ct._RemainderColsList = _RemainderColsList
+
 if not os.path.exists("churn_model.joblib"):
     with zipfile.ZipFile("model.zip", 'r') as zip_ref:
         zip_ref.extractall()
